@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دعوة حضور حفل زفاف | حبيبة بن نايل ونايل</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Aref+Ruqaa:wght@400;700&family=Lateef:wght@200;300;400;500;600;700;800&family=Marhey:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-light: #E8D9A6;
+            --gold: #C9A961;
+            --gold-deep: #A8862E;
+            --gold-shine: #F4E5B1;
+            --cream: #FBF6EC;
+            --cream-deep: #F3E9D2;
+            --ink: #2C2418;
+            --ink-soft: #4A3D28;
+            --burgundy: #5C1A1B;
+            --rose: #C97B7B;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lateef', 'Amiri', serif;
+            background: var(--cream);
+            color: var(--ink);
+            overflow-x: hidden;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ============ LOADING SCREEN ============ */
+        .loader {
+            position: fixed;
+            inset: 0;
+            background: var(--cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            z-index: 9999;
+            transition: opacity 1s ease, visibility 1s ease;
+        }
+        .loader.hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+        .loader-ornament {
+            width: 80px;
+            height: 80px;
+            animation: spin 4s linear infinite;
+        }
+        .loader-text {
+            margin-top: 20px;
+            font-family: 'Aref Ruqaa', serif;
+            color: var(--gold-deep);
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; }
+        }
+
+        /* ============ NAVIGATION ============ */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.4s ease;
+        }
+        nav.scrolled {
+            background: rgba(251, 246, 236, 0.92);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 30px rgba(168, 134, 46, 0.12);
+            padding: 12px 40px;
+        }
+        .nav-brand {
+            font-family: 'Aref Ruqaa', serif;
+            color: var(--gold-deep);
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+        .nav-links a {
+            color: var(--ink-soft);
+            text-decoration: none;
+            font-family: 'Amiri', serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            right: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: var(--gold-deep);
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+        }
+
+        /* ============ HERO SECTION ============ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background:
+                radial-gradient(ellipse at top, rgba(244, 229, 177, 0.4) 0%, transparent 50%),
+                radial-gradient(ellipse at bottom, rgba(201, 169, 97, 0.15) 0%, transparent 60%),
+                var(--cream);
+            overflow: hidden;
+            padding: 100px 20px 60px;
+            text-align: center;
+        }
+
+        /* Decorative corner ornaments */
+        .corner-ornament {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        .corner-ornament.top-right { top: 20px; right: 20px; }
+        .corner-ornament.top-left { top: 20px; left: 20px; transform: scaleX(-1); }
+        .corner-ornament.bottom-right { bottom: 20px; right: 20px; transform: scaleY(-1); }
+        .corner-ornament.bottom-left { bottom: 20px; left: 20px; transform: scale(-1, -1); }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .bismillah {
+            font-family: 'Aref Ruqaa', serif;
+            color: var(--gold-deep);
+            font-size: 1.6rem;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeUp 1s ease 0.3s forwards;
+        }
+
+        .hero-prelude {
+            font-family: 'Amiri', serif;
+            font-size: 1.3rem;
+            color: var(--ink-soft);
+            margin-bottom: 24px;
+            opacity: 0;
+            animation: fadeUp 1s ease 0.6s forwards;
+        }
+
+        .names-container {
+            margin: 40px 0;
+            opacity: 0;
+            animation: fadeUp 1.2s ease 0.9s forwards;
+        }
+
+        .name {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            color: var(--ink);
+            display: block;
+            line-height: 1.1;
+            background: linear-gradient(135deg, var(--ink) 0%, var(--gold-deep) 50%, var(--ink) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 20px rgba(168, 134, 46, 0.15);
+        }
+
+        .ampersand {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+            gap: 16px;
+        }
+        .ampersand-line {
+            width: 80px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+        .ampersand-symbol {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 2.5rem;
+            color: var(--gold-deep);
+        }
+
+        .invitation-tag {
+            display: inline-block;
+            padding: 8px 24px;
+            border: 1px solid var(--gold);
+            border-radius: 50px;
+            font-family: 'Amiri', serif;
+            font-size: 1rem;
+            color: var(--gold-deep);
+            margin-bottom: 30px;
+            letter-spacing: 6px;
+            background: rgba(244, 229, 177, 0.2);
+            opacity: 0;
+            animation: fadeUp 1s ease 1.2s forwards;
+        }
+
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            color: var(--gold-deep);
+            opacity: 0;
+            animation: fadeUp 1s ease 1.5s forwards;
+        }
+        .scroll-hint span {
+            font-family: 'Amiri', serif;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+        }
+        .scroll-arrow {
+            width: 24px;
+            height: 40px;
+            border: 1.5px solid var(--gold);
+            border-radius: 14px;
+            position: relative;
+        }
+        .scroll-arrow::after {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 8px;
+            background: var(--gold-deep);
+            border-radius: 2px;
+            animation: scrollDot 1.8s ease-in-out infinite;
+        }
+        @keyframes scrollDot {
+            0%, 100% { top: 8px; opacity: 1; }
+            50% { top: 22px; opacity: 0.3; }
+        }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Floating petals */
+        .petal {
+            position: absolute;
+            pointer-events: none;
+            opacity: 0.6;
+            animation: float 20s linear infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* ============ SECTION COMMON ============ */
+        section {
+            padding: 100px 20px;
+            position: relative;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-title .ornament {
+            display: block;
+            margin: 0 auto 20px;
+            color: var(--gold);
+        }
+        .section-title h2 {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--ink);
+            font-weight: 700;
+        }
+        .section-title .subtitle {
+            font-family: 'Amiri', serif;
+            color: var(--gold-deep);
+            font-size: 1.1rem;
+            letter-spacing: 4px;
+            margin-top: 8px;
+        }
+
+        /* ============ QURAN VERSE SECTION ============ */
+        .verse-section {
+            background: linear-gradient(135deg, #F3E9D2 0%, #FBF6EC 100%);
+            text-align: center;
+        }
+        .verse-frame {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            background: rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(201, 169, 97, 0.3);
+            border-radius: 4px;
+            position: relative;
+            backdrop-filter: blur(6px);
+        }
+        .verse-frame::before,
+        .verse-frame::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border: 2px solid var(--gold);
+        }
+        .verse-frame::before {
+            top: -2px; right: -2px;
+            border-left: none; border-bottom: none;
+        }
+        .verse-frame::after {
+            bottom: -2px; left: -2px;
+            border-right: none; border-top: none;
+        }
+        .verse-text {
+            font-family: 'Amiri', serif;
+            font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+            color: var(--ink);
+            line-height: 2.2;
+            font-weight: 400;
+            margin-bottom: 24px;
+        }
+        .verse-source {
+            font-family: 'Lateef', serif;
+            color: var(--gold-deep);
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+
+        /* ============ COUNTDOWN SECTION ============ */
+        .countdown-section {
+            background: var(--cream);
+            text-align: center;
+        }
+        .countdown-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        .count-box {
+            background: linear-gradient(145deg, #FFFFFF 0%, var(--cream-deep) 100%);
+            border: 1px solid rgba(201, 169, 97, 0.3);
+            padding: 30px 10px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(168, 134, 46, 0.08);
+            position: relative;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .count-box:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(168, 134, 46, 0.18);
+        }
+        .count-box::before {
+            content: '';
+            position: absolute;
+            top: 8px; right: 8px; left: 8px; bottom: 8px;
+            border: 1px solid rgba(201, 169, 97, 0.2);
+            border-radius: 4px;
+            pointer-events: none;
+        }
+        .count-num {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            color: var(--gold-deep);
+            font-weight: 700;
+            line-height: 1;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .count-label {
+            font-family: 'Amiri', serif;
+            font-size: 1rem;
+            color: var(--ink-soft);
+            letter-spacing: 2px;
+        }
+        @media (max-width: 600px) {
+            .countdown-wrapper {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* ============ EVENT DETAILS ============ */
+        .details-section {
+            background: linear-gradient(180deg, var(--cream) 0%, #F3E9D2 100%);
+        }
+        .details-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        .detail-card {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(201, 169, 97, 0.25);
+            padding: 50px 30px;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+            backdrop-filter: blur(6px);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .detail-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(168, 134, 46, 0.2);
+        }
+        .detail-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            color: var(--gold-deep);
+        }
+        .detail-label {
+            font-family: 'Amiri', serif;
+            color: var(--gold-deep);
+            font-size: 1.1rem;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+        }
+        .detail-value {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 1.5rem;
+            color: var(--ink);
+            margin-bottom: 8px;
+            line-height: 1.6;
+        }
+        .detail-sub {
+            font-family: 'Lateef', serif;
+            color: var(--ink-soft);
+            font-size: 1.15rem;
+        }
+        @media (max-width: 900px) {
+            .details-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+        }
+
+        /* ============ FAMILIES SECTION ============ */
+        .families-section {
+            background: var(--cream);
+            text-align: center;
+        }
+        .families-frame {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, rgba(244, 229, 177, 0.15) 0%, rgba(251, 246, 236, 0.5) 100%);
+            border-top: 2px solid var(--gold);
+            border-bottom: 2px solid var(--gold);
+            position: relative;
+        }
+        .families-frame::before,
+        .families-frame::after {
+            content: '✦';
+            position: absolute;
+            color: var(--gold);
+            font-size: 1.5rem;
+            background: var(--cream);
+            padding: 0 12px;
+        }
+        .families-frame::before { top: -12px; left: 50%; transform: translateX(-50%); }
+        .families-frame::after { bottom: -12px; left: 50%; transform: translateX(-50%); }
+
+        .families-title {
+            font-family: 'Amiri', serif;
+            color: var(--gold-deep);
+            font-size: 1.3rem;
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+        }
+        .families-text {
+            font-family: 'Lateef', serif;
+            font-size: 1.6rem;
+            color: var(--ink);
+            line-height: 2.2;
+            margin-bottom: 30px;
+        }
+        .families-text .highlight {
+            color: var(--gold-deep);
+            font-weight: 600;
+        }
+        .families-names {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        .family-block {
+            text-align: center;
+        }
+        .family-block .role {
+            font-family: 'Amiri', serif;
+            color: var(--ink-soft);
+            font-size: 1rem;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+        .family-block .fname {
+            font-family: 'Aref Ruqaa', serif;
+            color: var(--ink);
+            font-size: 1.4rem;
+        }
+        .family-divider {
+            align-self: center;
+            width: 1px;
+            height: 50px;
+            background: var(--gold);
+            opacity: 0.5;
+        }
+        @media (max-width: 600px) {
+            .families-names { gap: 30px; }
+            .family-divider { display: none; }
+        }
+
+        /* ============ PROGRAM SECTION ============ */
+        .program-section {
+            background: linear-gradient(180deg, #F3E9D2 0%, var(--cream) 100%);
+        }
+        .timeline {
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0; bottom: 0;
+            right: 30px;
+            width: 1px;
+            background: linear-gradient(180deg, transparent, var(--gold), transparent);
+        }
+        .timeline-item {
+            position: relative;
+            padding-right: 80px;
+            margin-bottom: 40px;
+            text-align: right;
+        }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-dot {
+            position: absolute;
+            right: 22px;
+            top: 8px;
+            width: 18px;
+            height: 18px;
+            background: var(--cream);
+            border: 2px solid var(--gold-deep);
+            border-radius: 50%;
+        }
+        .timeline-dot::after {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 6px;
+            height: 6px;
+            background: var(--gold-deep);
+            border-radius: 50%;
+        }
+        .timeline-time {
+            font-family: 'Aref Ruqaa', serif;
+            color: var(--gold-deep);
+            font-size: 1.3rem;
+            margin-bottom: 6px;
+        }
+        .timeline-title {
+            font-family: 'Amiri', serif;
+            color: var(--ink);
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .timeline-desc {
+            font-family: 'Lateef', serif;
+            color: var(--ink-soft);
+            font-size: 1.1rem;
+        }
+
+        /* ============ QUOTE SECTION ============ */
+        .quote-section {
+            background: linear-gradient(135deg, #2C2418 0%, #4A3D28 100%);
+            text-align: center;
+            color: var(--cream);
+            padding: 120px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .quote-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(201, 169, 97, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(201, 169, 97, 0.1) 0%, transparent 40%);
+        }
+        .quote-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .quote-mark {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 5rem;
+            color: var(--gold);
+            line-height: 0.5;
+            margin-bottom: 20px;
+            opacity: 0.6;
+        }
+        .quote-text {
+            font-family: 'Amiri', serif;
+            font-size: clamp(1.4rem, 3vw, 1.9rem);
+            line-height: 2.2;
+            color: var(--gold-shine);
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+        .quote-author {
+            font-family: 'Lateef', serif;
+            color: var(--gold);
+            font-size: 1.3rem;
+            letter-spacing: 4px;
+        }
+
+        /* ============ RSVP SECTION ============ */
+        .rsvp-section {
+            background: var(--cream);
+            text-align: center;
+        }
+        .rsvp-card {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #FFFFFF 0%, var(--cream-deep) 100%);
+            border: 1px solid rgba(201, 169, 97, 0.3);
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(168, 134, 46, 0.15);
+            position: relative;
+        }
+        .rsvp-card::before {
+            content: '';
+            position: absolute;
+            top: 12px; right: 12px; left: 12px; bottom: 12px;
+            border: 1px solid rgba(201, 169, 97, 0.4);
+            border-radius: 4px;
+            pointer-events: none;
+        }
+        .rsvp-title {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 2rem;
+            color: var(--ink);
+            margin-bottom: 16px;
+        }
+        .rsvp-text {
+            font-family: 'Lateef', serif;
+            font-size: 1.3rem;
+            color: var(--ink-soft);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        .rsvp-btn {
+            display: inline-block;
+            padding: 14px 50px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-deep) 100%);
+            color: var(--cream);
+            text-decoration: none;
+            font-family: 'Amiri', serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(168, 134, 46, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .rsvp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(168, 134, 46, 0.4);
+        }
+
+        /* ============ FOOTER ============ */
+        footer {
+            background: #2C2418;
+            color: var(--cream);
+            text-align: center;
+            padding: 60px 20px 30px;
+        }
+        .footer-ornament {
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+        .footer-thanks {
+            font-family: 'Amiri', serif;
+            font-size: 1.4rem;
+            color: var(--gold-shine);
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+        .footer-couple {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 30px;
+        }
+        .footer-meta {
+            font-family: 'Lateef', serif;
+            color: var(--cream-deep);
+            opacity: 0.6;
+            font-size: 1rem;
+            letter-spacing: 2px;
+        }
+
+        /* ============ SCROLL REVEAL ============ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ============ DECORATIVE DIVIDER ============ */
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin: 30px 0;
+        }
+        .divider-line {
+            width: 60px;
+            height: 1px;
+            background: var(--gold);
+        }
+        .divider-symbol {
+            color: var(--gold-deep);
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============ LOADER ============ -->
+    <div class="loader" id="loader">
+        <svg class="loader-ornament" viewBox="0 0 100 100" fill="none" stroke="#A8862E" stroke-width="1">
+            <circle cx="50" cy="50" r="40" stroke-dasharray="4 4"/>
+            <circle cx="50" cy="50" r="28"/>
+            <path d="M50 10 L50 90 M10 50 L90 50" stroke-dasharray="2 4"/>
+            <circle cx="50" cy="50" r="6" fill="#A8862E"/>
+        </svg>
+        <div class="loader-text">حبيبة & نايل</div>
+    </div>
+
+    <!-- ============ NAVIGATION ============ -->
+    <nav id="nav">
+        <div class="nav-brand">حبيبة & نايل</div>
+        <ul class="nav-links">
+            <li><a href="#hero">الرئيسية</a></li>
+            <li><a href="#verse">الآية</a></li>
+            <li><a href="#countdown">العد التنازلي</a></li>
+            <li><a href="#details">التفاصيل</a></li>
+            <li><a href="#program">البرنامج</a></li>
+            <li><a href="#rsvp">تأكيد الحضور</a></li>
+        </ul>
+    </nav>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+        <!-- Corner ornaments -->
+        <svg class="corner-ornament top-right" viewBox="0 0 200 200" fill="none" stroke="#C9A961" stroke-width="1">
+            <path d="M0 200 Q 0 100, 100 100 Q 100 0, 200 0"/>
+            <path d="M20 180 Q 20 120, 80 120" opacity="0.5"/>
+            <circle cx="100" cy="100" r="3" fill="#C9A961"/>
+            <path d="M90 100 L 110 100 M100 90 L 100 110" opacity="0.7"/>
+        </svg>
+        <svg class="corner-ornament top-left" viewBox="0 0 200 200" fill="none" stroke="#C9A961" stroke-width="1">
+            <path d="M0 200 Q 0 100, 100 100 Q 100 0, 200 0"/>
+            <path d="M20 180 Q 20 120, 80 120" opacity="0.5"/>
+            <circle cx="100" cy="100" r="3" fill="#C9A961"/>
+        </svg>
+        <svg class="corner-ornament bottom-right" viewBox="0 0 200 200" fill="none" stroke="#C9A961" stroke-width="1">
+            <path d="M0 200 Q 0 100, 100 100 Q 100 0, 200 0"/>
+            <path d="M20 180 Q 20 120, 80 120" opacity="0.5"/>
+            <circle cx="100" cy="100" r="3" fill="#C9A961"/>
+        </svg>
+        <svg class="corner-ornament bottom-left" viewBox="0 0 200 200" fill="none" stroke="#C9A961" stroke-width="1">
+            <path d="M0 200 Q 0 100, 100 100 Q 100 0, 200 0"/>
+            <path d="M20 180 Q 20 120, 80 120" opacity="0.5"/>
+            <circle cx="100" cy="100" r="3" fill="#C9A961"/>
+        </svg>
+
+        <!-- Floating petals -->
+        <svg class="petal" style="left: 10%; animation-delay: 0s;" width="20" height="20" viewBox="0 0 20 20" fill="#E8D9A6">
+            <path d="M10 0 Q 15 10, 10 20 Q 5 10, 10 0"/>
+        </svg>
+        <svg class="petal" style="left: 30%; animation-delay: 4s;" width="16" height="16" viewBox="0 0 20 20" fill="#C9A961">
+            <path d="M10 0 Q 15 10, 10 20 Q 5 10, 10 0"/>
+        </svg>
+        <svg class="petal" style="left: 60%; animation-delay: 8s;" width="22" height="22" viewBox="0 0 20 20" fill="#E8D9A6">
+            <path d="M10 0 Q 15 10, 10 20 Q 5 10, 10 0"/>
+        </svg>
+        <svg class="petal" style="left: 80%; animation-delay: 12s;" width="18" height="18" viewBox="0 0 20 20" fill="#C97B7B" opacity="0.5">
+            <path d="M10 0 Q 15 10, 10 20 Q 5 10, 10 0"/>
+        </svg>
+        <svg class="petal" style="left: 50%; animation-delay: 16s;" width="20" height="20" viewBox="0 0 20 20" fill="#E8D9A6">
+            <path d="M10 0 Q 15 10, 10 20 Q 5 10, 10 0"/>
+        </svg>
+
+        <div class="hero-content">
+            <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+            <div class="invitation-tag">دَعْوَةُ حُضُورِ حَفْلِ زِفَاف</div>
+            <div class="hero-prelude">يسرّنا ويشرفنا أن نشارككم فرحة قلوبنا</div>
+
+            <div class="names-container">
+                <span class="name">حَبِيبَة</span>
+                <div class="ampersand">
+                    <div class="ampersand-line"></div>
+                    <div class="ampersand-symbol">﴿ وَ ﴾</div>
+                    <div class="ampersand-line"></div>
+                </div>
+                <span class="name">نَايِل</span>
+            </div>
+
+            <div class="hero-prelude" style="animation-delay: 1.3s;">
+                بن نايل &mdash; بن نايل
+            </div>
+        </div>
+
+        <div class="scroll-hint">
+            <span>تَابِعُوا</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- ============ QURAN VERSE ============ -->
+    <section class="verse-section reveal" id="verse">
+        <div class="section-title">
+            <svg class="ornament" width="60" height="20" viewBox="0 0 60 20" fill="none" stroke="#C9A961" stroke-width="1">
+                <path d="M0 10 L 20 10 M 40 10 L 60 10"/>
+                <circle cx="30" cy="10" r="4"/>
+                <path d="M30 4 L 30 16 M 24 10 L 36 10" opacity="0.6"/>
+            </svg>
+            <h2>آيَةٌ مِنَ الذِّكْرِ الْحَكِيمِ</h2>
+            <div class="subtitle">~ كِتَابُ اللَّهِ ~</div>
+        </div>
+
+        <div class="verse-frame">
+            <p class="verse-text">
+                وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ
+            </p>
+            <p class="verse-source">﴿ سُورَةُ الرُّوم — آيَة 21 ﴾</p>
+        </div>
+    </section>
+
+    <!-- ============ COUNTDOWN ============ -->
+    <section class="countdown-section reveal" id="countdown">
+        <div class="section-title">
+            <svg class="ornament" width="60" height="20" viewBox="0 0 60 20" fill="none" stroke="#C9A961" stroke-width="1">
+                <path d="M0 10 L 20 10 M 40 10 L 60 10"/>
+                <circle cx="30" cy="10" r="4"/>
+                <path d="M30 4 L 30 16 M 24 10 L 36 10" opacity="0.6"/>
+            </svg>
+            <h2>العَدُّ التَّنَازُلِيُّ لِلْحَفْلِ</h2>
+            <div class="subtitle">~ يَبْقَى عَلَى اللُّقَاء ~</div>
+        </div>
+
+        <div class="countdown-wrapper">
+            <div class="count-box">
+                <span class="count-num" id="days">00</span>
+                <span class="count-label">يَوْم</span>
+            </div>
+            <div class="count-box">
+                <span class="count-num" id="hours">00</span>
+                <span class="count-label">سَاعَة</span>
+            </div>
+            <div class="count-box">
+                <span class="count-num" id="minutes">00</span>
+                <span class="count-label">دَقِيقَة</span>
+            </div>
+            <div class="count-box">
+                <span class="count-num" id="seconds">00</span>
+                <span class="count-label">ثَانِيَة</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ EVENT DETAILS ============ -->
+    <section class="details-section reveal" id="details">
+        <div class="section-title">
+            <svg class="ornament" width="60" height="20" viewBox="0 0 60 20" fill="none" stroke="#C9A961" stroke-width="1">
+                <path d="M0 10 L 20 10 M 40 10 L 60 10"/>
+                <circle cx="30" cy="10" r="4"/>
+                <path d="M30 4 L 30 16 M 24 10 L 36 10" opacity="0.6"/>
+            </svg>
+            <h2>تَفَاصِيلُ الْحَفْلِ</h2>
+            <div class="subtitle">~ مَعْلُومَاتُ الْحُضُور ~</div>
+        </div>
+
+        <div class="details-grid">
+            <div class="detail-card">
+                <svg class="detail-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <rect x="8" y="14" width="48" height="42" rx="2"/>
+                    <path d="M20 14 V 8 M 44 14 V 8 M 8 26 H 56"/>
+                    <circle cx="32" cy="40" r="8" fill="currentColor" opacity="0.15"/>
+                    <path d="M32 36 V 44 M 28 40 H 36" stroke="currentColor"/>
+                </svg>
+                <div class="detail-label">التَّارِيخ</div>
+                <div class="detail-value">السَّبْت</div>
+                <div class="detail-sub">15 شعبان 1447 هـ<br>31 يناير 2026 م</div>
+            </div>
+
+            <div class="detail-card">
+                <svg class="detail-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="32" cy="32" r="22"/>
+                    <path d="M32 18 V 32 L 42 38"/>
+                    <path d="M14 14 L 8 8 M 56 14 L 50 8" opacity="0.5"/>
+                </svg>
+                <div class="detail-label">الوَقْت</div>
+                <div class="detail-value">المساء</div>
+                <div class="detail-sub">استقبال الضيوف 7:00 م<br>الحفل يبدأ 8:30 م</div>
+            </div>
+
+            <div class="detail-card">
+                <svg class="detail-icon" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M32 8 L 56 20 V 44 L 32 56 L 8 44 V 20 Z"/>
+                    <path d="M32 8 V 56 M 8 20 L 56 44 M 56 20 L 8 44" opacity="0.3"/>
+                    <circle cx="32" cy="32" r="6" fill="currentColor" opacity="0.2"/>
+                </svg>
+                <div class="detail-label">المَكَان</div>
+                <div class="detail-value">قَاعَةُ اللُّؤْلُؤَة</div>
+                <div class="detail-sub">قاعة الأفراح الفاخرة<br>الرياض — حي الياسمين</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FAMILIES ============ -->
+    <section class="families-section reveal">
+        <div class="section-title">
+            <svg class="ornament" width="60" height="20" viewBox="0 0 60 20" fill="none" stroke="#C9A961" stroke-width="1">
+                <path d="M0 10 L 20 10 M 40 10 L 60 10"/>
+                <circle cx="30" cy="10" r="4"/>
+                <path d="M30 4 L 30 16 M 24 10 L 36 10" opacity="0.6"/>
+            </svg>
+            <h2>دَعْوَةُ الْعَائِلَتَيْنِ</h2>
+            <div class="subtitle">~ كَلِمَةٌ مِنَ الْقَلْب ~</div>
+        </div>
+
+        <div class="families-frame">
+            <div class="families-title">~ يَسُرُّنَا أَنْ نُشَارِكَكُمْ فَرْحَتَنَا ~</div>
+            <p class="families-text">
+                بِفَاضِلِ الشَّوْقِ وَطِيبِ الْأَمَانِيِّ، نَدْعُوكُمْ لِتَكُونُوا ضُيُوفًا كِرَامًا عَلَى حَفْلِ زِفَافِنَا،<br>
+                لِتُزَيِّنُوا بِحُضُورِكُمْ لَيْلَةً سَتَبْقَى فِي ذَاكِرَةِ <span class="highlight">حَبِيبَة</span> وَ <span class="highlight">نَايِل</span> إِلَى الْأَبَد.
+            </p>
+
+            <div class="families-names">
+                <div class="family-block">
+                    <div class="role">عَائِلَةُ الْعَرُوس</div>
+                    <div class="fname">آل بِن نَايِل</div>
+                </div>
+                <div class="family-divider"></div>
+                <div class="family-block">
+                    <div class="role">عَائِلَةُ الْعَرِيس</div>
+                    <div class="fname">آل بِن نَايِل</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ PROGRAM ============ -->
+    <section class="program-section reveal" id="program">
+        <div class="section-title">
+            <svg class="ornament" width="60" height="20" viewBox="0 0 60 20" fill="none" stroke="#C9A961" stroke-width="1">
+                <path d="M0 10 L 20 10 M 40 10 L 60 10"/>
+                <circle cx="30" cy="10" r="4"/>
+                <path d="M30 4 L 30 16 M 24 10 L 36 10" opacity="0.6"/>
+            </svg>
+            <h2>بَرْنَامَجُ الْحَفْلِ</h2>
+            <div class="subtitle">~ تَسَلْسُلُ الْأُمْسِيَة ~</div>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-time">07:00 م</div>
+                <div class="timeline-title">اسْتِقْبَالُ الضُّيُوف</div>
+                <div class="timeline-desc">استقبال الضيوف وتقديم المرطبات والقهوة العربية</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-time">08:00 م</div>
+                <div class="timeline-title">دُخُولُ الْعَرُوسِ وَالْعَرِيس</div>
+                <div class="timeline-desc">موكب الزفاف على أنغام الموسيقى</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-time">09:00 م</div>
+                <div class="timeline-title">عَشَاءُ الْحَفْلِ</div>
+                <div class="timeline-desc">عشاء فاخر على الطاولة الملكية</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-time">10:30 م</div>
+                <div class="timeline-title">قَطْعُ كَعْكَةِ الزِّفَاف</div>
+                <div class="timeline-desc">لحظة لا تُنسى بين العروسين</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-time">11:00 م</div>
+                <div class="timeline-title">خَاتِمَةُ الْأُمْسِيَة</div>
+                <div class="timeline-desc">تكريم الضيوف وتوزيع الهدايا التذكارية</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ QUOTE ============ -->
+    <section class="quote-section reveal">
+        <div class="quote-content">
+            <div class="quote-mark">"</div>
+            <p class="quote-text">
+                الْحُبُّ لَا يَتَكَلَّمُ بِالْكَلِمَاتِ، بَلْ يُسْمَعُ فِي نَبْضِ الْقُلُوبِ، وَيُرَى فِي لَمْعَانِ الْعُيُون.
+            </p>
+            <div class="quote-author">~ مِنْ أَجْمَلِ مَا قِيلَ فِي الزَّوَاجِ ~</div>
+        </div>
+    </section>
+
+    <!-- ============ RSVP ============ -->
+    <section class="rsvp-section reveal" id="rsvp">
+        <div class="section-title">
+            <svg class="ornament" width="60" height="20" viewBox="0 0 60 20" fill="none" stroke="#C9A961" stroke-width="1">
+                <path d="M0 10 L 20 10 M 40 10 L 60 10"/>
+                <circle cx="30" cy="10" r="4"/>
+                <path d="M30 4 L 30 16 M 24 10 L 36 10" opacity="0.6"/>
+            </svg>
+            <h2>تَأْكِيدُ الْحُضُورِ</h2>
+            <div class="subtitle">~ نَنْتَظِرُكُمْ بِفَارِغِ الصَّبْر ~</div>
+        </div>
+
+        <div class="rsvp-card">
+            <h3 class="rsvp-title">سُعِدَاءُ بِحُضُورِكُمْ</h3>
+            <p class="rsvp-text">
+                نَرْجُو مِنْكُمْ تَأْكِيدَ حُضُورِكُمْ قَبْلَ مَوْعِدِ الْحَفْلِ<br>
+                لِيَتِمَّ ضِيَافَتَكُمْ عَلَى أَكْمَلِ وَجْه.
+            </p>
+            <a href="#" class="rsvp-btn" onclick="alert('شكراً لك! يرجى التواصل مع العائلة لتأكيد الحضور.'); return false;">
+                أُؤَكِّدُ الْحُضُور
+            </a>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer>
+        <div class="footer-ornament">
+            <svg width="80" height="20" viewBox="0 0 80 20" fill="none" stroke="#C9A961" stroke-width="1">
+                <path d="M0 10 L 28 10 M 52 10 L 80 10"/>
+                <circle cx="40" cy="10" r="4" fill="#C9A961"/>
+                <path d="M40 2 L 40 18" opacity="0.5"/>
+            </svg>
+        </div>
+        <div class="footer-thanks">شُكْرًا لِحُضُورِكُمْ</div>
+        <div class="footer-couple">حَبِيبَة & نَايِل</div>
+        <div class="footer-meta">~ بِسْعَادَةٍ دَائِمَةٍ وَحَيَاةٍ مُبَارَكَة ~</div>
+    </footer>
+
+    <script>
+        // ====== Loader ======
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hide');
+            }, 1200);
+        });
+
+        // ====== Nav scroll effect ======
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // ====== Countdown timer ======
+        // Wedding date: 31 January 2026, 20:30
+        const weddingDate = new Date('2026-01-31T20:30:00').getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            if (distance < 0) {
+                document.getElementById('days').innerText = '00';
+                document.getElementById('hours').innerText = '00';
+                document.getElementById('minutes').innerText = '00';
+                document.getElementById('seconds').innerText = '00';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = String(days).padStart(2, '0');
+            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // ====== Scroll reveal ======
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
